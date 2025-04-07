@@ -1,7 +1,14 @@
 from data_definitions import social, nonsocial, response, learning, io
-from agent_setup import agent, clock, stimulus_input, reward_input, sr_chunks, stim_value_chunks
+from agent_setup import (
+    agent, clock, stimulus_input, reward_input,
+    sr_chunks, stim_value_chunks
+)
 from scenarios import scenarios, run_scenario
-from visualization import plot_learning_curves, plot_stimulus_values, plot_performance_and_qvalues
+from visualization import (
+    plot_learning_curves,
+    plot_stimulus_values,
+    plot_performance_and_qvalues
+)
 
 
 def main():
@@ -23,18 +30,14 @@ def main():
             scenario["iterations"]
         )
 
-        # Collect results
         all_activations.extend(activations)
         all_stimulus_values.extend(stimulus_values)
         all_time_points.extend(time_points)
 
     # Plot results
     print("\nGenerating plots...")
-
-    # Generate both required plots that match the examples
     plot_performance_and_qvalues()
 
-    # Define keys to track for learning curves
     learning_keys = {
         'Social Presence -> Approach': (social.presence, response.approach),
         'Social Behavior -> Imitation': (social.behavior_B1, response.behavior_B1),
@@ -42,7 +45,6 @@ def main():
         'Predator -> Escape': (nonsocial.predator, response.escape)
     }
 
-    # Define keys to track for stimulus values
     value_keys = {
         'Social Presence Value': (social.presence, learning.stimulus_value),
         'Stimulus X Value': (nonsocial.stimulus_x, learning.stimulus_value),
@@ -50,7 +52,6 @@ def main():
         'Warning Value': (social.warning, learning.stimulus_value)
     }
 
-    # Generate original plots as well
     plot_learning_curves(all_activations, all_time_points, learning_keys)
     plot_stimulus_values(all_stimulus_values, all_time_points, value_keys)
 
