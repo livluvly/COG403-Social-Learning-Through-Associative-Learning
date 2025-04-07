@@ -1,82 +1,87 @@
 # Social Learning Through Associative Learning Simulation
 
-This project implements a computational model of social learning through associative processes, based on the Rescorla-Wagner learning algorithm. The simulation demonstrates how social and non-social stimuli can influence learning and behavior through different associative pathways.
+This repository contains a simulation of social learning behaviors modeled through associative learning mechanisms, using the Rescorla-Wagner algorithm within the pyClarion cognitive architecture. It demonstrates how agents learn to respond to both social and non-social cues using reinforcement-driven processes.
+
+## Repository Structure
+
+- `main.py`: Orchestrates the full simulation and plotting pipeline.
+- `agent_setup.py`: Initializes the agent, inputs, and learning modules.
+- `data_definitions.py`: Defines the hierarchical structure for stimuli, responses, and learning terms.
+- `rw_learning.py`: Implements the Rescorla-Wagner learning process.
+- `scenarios.py`: Specifies and executes learning scenarios.
+- `visualization.py`: Generates visual outputs showing performance and learning trends.
+- `README.md`: This file.
 
 ## Overview
 
-The simulation models 4 key aspects of social learning:
+The simulation models four key aspects of social learning:
 
 1. Response to social stimuli
 2. Imitation learning
 3. Response to non-social stimuli
 4. Avoidance learning through social warning signals
 
-Using the pyClarion cognitive architecture framework, the model incorporates two Rescorla-Wagner learning processes:
-- Stimulus-response associations
-- Stimulus-value associations
+The model integrates two types of associative learning:
+- **Stimulus-response learning**
+- **Stimulus-value learning**
 
-## Components
-
-The simulation consists of several key components:
-
-- **Agent Setup**: Initializes the agent with the learning architecture
-- **Data Definitions**: Defines the social and non-social stimuli, responses, and learning parameters
-- **Rescorla-Wagner Learning**: Implements the associative learning algorithm
-- **Scenarios**: Defines and runs different learning scenarios
-- **Visualization**: Generates plots showing learning performance and outcomes
+These are implemented via two Rescorla-Wagner processes.
 
 ## Running the Simulation
 
-To run the simulation:
+Ensure dependencies are installed:
+```bash
+pip install pyClarion numpy matplotlib
+```
 
+Run the simulation:
 ```bash
 python main.py
 ```
 
 ## Output
 
-The simulation produces several visualizations:
+The simulation generates several plots saved as PNG files:
 
-1. **Action Value Estimates**: Shows how action values increase over time as the agent learns
-2. **Social Learning Performance**: Shows the pattern of rewards received during learning
-3. **Stimulus Values Over Time**: Shows how different stimuli acquire different values through learning
+1. `action_value_estimates.png`: Tracks the agent's action value estimates across trials.
+2. `social_learning_performance.png`: Displays average reward trends over time.
+3. `stimulus_values.png`: Visualizes stimulus values as they evolve.
+4. `learning_curves.png`: Tracks learned stimulus-response associations over time.
 
 ## Model Parameters
 
-The Rescorla-Wagner learning process has two primary parameters:
+The Rescorla-Wagner learners are configured as follows:
 
-- **Alpha (α)**: Learning rate - determines how quickly associations are formed
-  - sr_learner: α = 0.2
-  - val_learner: α = 0.15
+- **Alpha (α)**: Learning rate
+  - Stimulus-response learner: α = 0.2
+  - Stimulus-value learner: α = 0.15
 
-- **Beta (β)**: Associability - determines the influence of prediction errors
+- **Beta (β)**: Associability
   - Both learners: β = 0.5
 
 ## Learning Scenarios
 
-### 1. Response to Social Stimulus
-Models how the agent learns to respond to social presence with approach behavior.
+1. **Response to Social Stimulus**
+   - Models learning to approach social presence based on positive reinforcement.
 
-### 2. Imitation Learning
-Models how the agent learns to imitate observed social behaviors.
+2. **Imitation Learning**
+   - Models reinforcement-based imitation of observed social behaviors.
 
-### 3. Response to Non-Social Stimulus
-Models learning responses to non-social stimuli for comparison.
+3. **Response to Non-Social Stimulus**
+   - Evaluates associative learning in the presence of environmental cues.
 
-### 4. Avoidance Learning
-Models how social warning signals help the agent learn to avoid predator threats.
+4. **Avoidance Learning**
+   - Trains the agent to avoid threats using social warning signals.
 
-## Analysis
+## Key Findings
 
-The simulation demonstrates several key principles of social learning:
-
-1. Social stimuli can facilitate faster learning compared to non-social stimuli
-2. Imitation provides an efficient mechanism for acquiring adaptive behaviors
-3. Social warning signals can facilitate avoidance learning without direct experience
-4. The Rescorla-Wagner algorithm effectively captures the associative processes underlying these learning mechanisms
+- Social stimuli enable faster learning than non-social ones.
+- Imitation supports efficient acquisition of adaptive responses.
+- Social cues like warnings can facilitate learning without direct exposure.
+- The Rescorla-Wagner framework successfully models diverse social learning mechanisms.
 
 ## Dependencies
 
-- pyClarion
-- NumPy
-- Matplotlib
+- `pyClarion`
+- `numpy`
+- `matplotlib`
