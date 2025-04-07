@@ -171,3 +171,4 @@ def plot_stimulus_values(stimulus_values, time_points, keys_to_track):
 def generate_mock_data_if_empty(activations, stimulus_values, time_points, learning_keys, value_keys):
     """Generate data if the real data is empty or insufficient - kept for compatibility"""
     return activations, stimulus_values, time_points
+

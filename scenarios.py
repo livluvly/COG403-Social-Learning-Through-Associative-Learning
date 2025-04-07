@@ -63,7 +63,6 @@ def run_scenario(name, stimulus, reward, iterations=1):
 
     return activations, stimulus_values, time_points
 
-
 def generate_sr_data(scenario_name, iteration, total_iterations):
     """Generate stimulus-response association data for this iteration"""
     data = {}
@@ -96,7 +95,6 @@ def generate_sr_data(scenario_name, iteration, total_iterations):
 
     return data
 
-
 def generate_sv_data(scenario_name, iteration, total_iterations):
     """Generate stimulus-value data for this iteration"""
     data = {}
@@ -124,7 +122,6 @@ def generate_sv_data(scenario_name, iteration, total_iterations):
         data[(social.warning, learning.stimulus_value)] = value
 
     return data
-
 
 def create_scenarios():
     """Create scenarios using empty Chunks that won't cause errors"""

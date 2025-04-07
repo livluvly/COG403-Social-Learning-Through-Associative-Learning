@@ -234,3 +234,4 @@ class RescorlaWagner(Process):
 
         except Exception as e:
             print(f"  Error setting weight: {e}")
+
